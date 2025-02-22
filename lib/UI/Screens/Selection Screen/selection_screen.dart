@@ -23,12 +23,25 @@ class _SelectionScreenState extends State<SelectionScreen> {
             constText(),
             SizedBox(height: 40),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(
+                    userType: "Patient"
+                  )
+                )
+              ),
               child: UserSelectionContainer(name: "Patient")
             ),
             SizedBox(height: 25,),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+              onTap: () => Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) => LoginScreen(
+                    userType: "Physiotherapist"
+                  )
+                )
+              ),
               child: UserSelectionContainer(name: "Physiotherapist")
             )
           ],
