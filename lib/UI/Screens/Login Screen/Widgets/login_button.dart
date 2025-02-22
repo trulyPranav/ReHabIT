@@ -11,7 +11,7 @@ class LoginButton extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Container(
       height: height * 0.07,
-      width: width * 0.75,
+      width: width * 0.83,
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.circular(5)
