@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rehabit/Services/Authentication/auth_service.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_icons.dart';
+import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
 
@@ -38,17 +39,29 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
 
   homeNav(BuildContext context, String userName) { 
     if (widget.userType == "Patient") {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => PatientHomeScreen(name: userName),
         ),
       );
-    } else {
       Navigator.push(
         context,
         MaterialPageRoute(
+          builder: (context) => OnboardingScreen(name: "Patient"),
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
           builder: (context) => PhysiotherapistHomeScreen(name: userName),
+        ),
+      );
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OnboardingScreen(name: "Physiotherapist"),
         ),
       );
     }
@@ -61,7 +74,7 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
       });
       final session = await _auth.loginWithGoogle();
       if (session != null && mounted) {
-        String? userName = session.user?.displayName ?? "No Name Available"; // Default name if not available
+        String? userName = session.user?.displayName ?? "User404"; // Default name if not available
         homeNav(context, userName);
       } else {
         print("Google login failed");

@@ -8,6 +8,9 @@ import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/sign_up_row.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/text_controller.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_details_text.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/main_logo.dart';
+import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
+import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   final String userType;
@@ -48,7 +51,39 @@ class _LoginScreenState extends State<LoginScreen> {
               TextController(controller: password, hintText: "Password"),
               forgotPassword(),
               SizedBox(height: 30),
-              LoginButton(),
+              //TODO: Remove this Login
+              GestureDetector(
+                onTap: () {
+                  if (widget.userType == "Patient") {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PatientHomeScreen(name: "Rizgan"),
+                      ),
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnboardingScreen(name: "Patient"),
+                      ),
+                    );
+                  } else {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PhysiotherapistHomeScreen(name: "Rizgan"),
+                      ),
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnboardingScreen(name: "Physiotherapist"),
+                      ),
+                    );
+                  }
+                },
+                child: LoginButton()
+              ),
               SizedBox(height: 40),
               signUpRow(),
               SizedBox(height: 25),

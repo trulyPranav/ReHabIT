@@ -5,3 +5,11 @@ Color primaryBackground = Color(0xFFFFFFFF);
 Color textWhite = Color(0xFFFFFFFF);
 Color textBlack = Color(0xFF000000);
 Color formFieldBorder =  Color(0xFF887E7E);
+
+double getAppBarHeight () {
+  return kToolbarHeight;
+}
+
+double getBottomBarHeight () {
+  return kBottomNavigationBarHeight;
+}
