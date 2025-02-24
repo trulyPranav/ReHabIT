@@ -11,6 +11,8 @@ class PhysiotherapistHomeScreen extends StatefulWidget {
 class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Placeholder(
+      child: Text("hehe physio name is ${widget.name}"),
+    );
   }
 }
