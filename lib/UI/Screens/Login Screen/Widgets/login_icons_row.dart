@@ -3,7 +3,7 @@ import 'package:rehabit/Services/Authentication/auth_service.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_icons.dart';
 import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
-import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/physio_navbar.dart';
 
 class LoginIconsRow extends StatefulWidget {
   final String userType;
@@ -55,7 +55,7 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => PhysiotherapistHomeScreen(name: userName),
+          builder: (context) => PhysioNavbar(userName: userName),
         ),
       );
       Navigator.push(

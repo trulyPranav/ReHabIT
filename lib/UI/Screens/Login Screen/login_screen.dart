@@ -10,7 +10,7 @@ import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_details_text.dar
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/main_logo.dart';
 import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
-import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/physio_navbar.dart';
 
 class LoginScreen extends StatefulWidget {
   final String userType;
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PhysiotherapistHomeScreen(name: "Rizgan"),
+                        builder: (context) => PhysioNavbar(userName: "Rizgan"),
                       ),
                     );
                     Navigator.push(

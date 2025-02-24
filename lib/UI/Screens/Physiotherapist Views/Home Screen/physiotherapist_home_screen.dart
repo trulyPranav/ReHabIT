@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:rehabit/UI/Constants/constants.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/Widgets/selector_container.dart';
 
 class PhysiotherapistHomeScreen extends StatefulWidget {
   final String name;
@@ -11,8 +14,27 @@ class PhysiotherapistHomeScreen extends StatefulWidget {
 class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Placeholder(
-      child: Text("hehe physio name is ${widget.name}"),
+    return Scaffold(
+      backgroundColor: primaryBackground,
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(50,100,50,0),
+        child: Column(
+          spacing: 15,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Hello ${widget.name}!",
+              style: GoogleFonts.spaceGrotesk(
+                fontWeight: FontWeight.w700,
+                fontSize: 30,
+              ),
+            ),
+            SelectorContainer(content: "PATIENTS"),
+            SelectorContainer(content: "EXERCISES"),
+            SelectorContainer(content: "PROGRESS REPORTS")
+          ],
+        ),
+      ),
     );
   }
 }
