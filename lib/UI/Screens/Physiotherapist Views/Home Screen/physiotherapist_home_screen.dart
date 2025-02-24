@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
-import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/Widgets/selector_container.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Exercise%20Screen/exercise_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Widgets/selector_container.dart';
 
 class PhysiotherapistHomeScreen extends StatefulWidget {
   final String name;
@@ -30,7 +31,10 @@ class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
               ),
             ),
             SelectorContainer(content: "PATIENTS"),
-            SelectorContainer(content: "EXERCISES"),
+            GestureDetector(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ExerciseScreen())),
+              child: SelectorContainer(content: "EXERCISES")
+            ),
             SelectorContainer(content: "PROGRESS REPORTS")
           ],
         ),
