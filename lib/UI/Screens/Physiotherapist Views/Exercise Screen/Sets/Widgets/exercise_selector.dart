@@ -16,7 +16,7 @@ class _ExerciseSelectorState extends State<ExerciseSelector> {
     "Thumbs Up",
     "Finger and\nThumb Stretch",
     "Fist Stretch",
-    "Finger Stretch"
+    "Finger and\nThumb Touch"
   ];
 
   int currentIndex = 0;

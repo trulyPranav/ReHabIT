@@ -23,6 +23,44 @@ class _SetsState extends State<Sets> {
       _selectedExercise = exercise;
     });
   }
+  void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            "SUCCESS",
+            style: GoogleFonts.spaceGrotesk(
+              fontWeight: FontWeight.w700,
+              fontSize: 21
+            ),
+          ),
+          content: Text(
+            "Changes Applied Successfully!",
+            style: GoogleFonts.spaceGrotesk(
+              fontWeight: FontWeight.normal,
+              fontSize: 14
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text(
+                "Continue",
+                style: GoogleFonts.spaceGrotesk(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: textBlack
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +97,10 @@ class _SetsState extends State<Sets> {
             SizedBox(height: 20),
             Center(child: SettingContainer(main: "frequency", sub: "reps")),
             SizedBox(height: 30),
-            Center(child: ApplyChanges())
+            GestureDetector(
+              onTap: _showSuccessDialog,
+              child: Center(child: ApplyChanges())
+            )
         ],
       ),
     );
