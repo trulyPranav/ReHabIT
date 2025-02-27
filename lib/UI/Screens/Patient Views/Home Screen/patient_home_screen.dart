@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rehabit/UI/Constants/constants.dart';
 
 class PatientHomeScreen extends StatefulWidget {
   final String name;
@@ -11,8 +12,8 @@ class PatientHomeScreen extends StatefulWidget {
 class _PatientHomeScreenState extends State<PatientHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Placeholder(
-      child: Text("Patient il keri gois pinne patient per ${widget.name} ahne"),
+    return Scaffold(
+      backgroundColor: primaryBackground,
     );
   }
 }
