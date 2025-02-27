@@ -4,7 +4,8 @@ import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Widgets/selector_container.dart';
 
 class ExerciseScreen extends StatelessWidget {
-  const ExerciseScreen({super.key});
+  final Function setExerciseFalse;
+  const ExerciseScreen({required this.setExerciseFalse, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,9 @@ class ExerciseScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 35, top: 80),
             child: IconButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                setExerciseFalse();
+              },
               icon: Icon(Icons.arrow_back_ios, size: 30, color: textBlack,)
             ),
           ),

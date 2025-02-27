@@ -13,32 +13,46 @@ class PhysiotherapistHomeScreen extends StatefulWidget {
 }
 
 class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
+  bool _isExercise = false;
+  void setExerciseFalse(){
+    setState(() {
+      _isExercise = false;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: primaryBackground,
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(50,100,50,0),
-        child: Column(
-          spacing: 15,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Hello ${widget.name}!",
-              style: GoogleFonts.spaceGrotesk(
-                fontWeight: FontWeight.w700,
-                fontSize: 30,
+    if (_isExercise == false) {
+      return Scaffold(
+        backgroundColor: primaryBackground,
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(50,100,50,0),
+          child: Column(
+            spacing: 15,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Hello ${widget.name}!",
+                style: GoogleFonts.spaceGrotesk(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                ),
               ),
-            ),
-            SelectorContainer(content: "PATIENTS"),
-            GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ExerciseScreen())),
-              child: SelectorContainer(content: "EXERCISES")
-            ),
-            SelectorContainer(content: "PROGRESS REPORTS")
-          ],
+              SelectorContainer(content: "PATIENTS"),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isExercise = true;
+                  });
+                },
+                child: SelectorContainer(content: "EXERCISES")
+              ),
+              SelectorContainer(content: "PROGRESS REPORTS")
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      return ExerciseScreen(setExerciseFalse: setExerciseFalse);
+    }
   }
 }
