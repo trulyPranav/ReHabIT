@@ -9,7 +9,6 @@ import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/text_controller.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_details_text.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/main_logo.dart';
 import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
-import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/patient_navbar.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/physio_navbar.dart';
 
