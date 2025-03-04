@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:rehabit/Providers/exercise_provider.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Widgets/patient_selector_container.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Widgets/upcoming_screen.dart';
@@ -19,14 +22,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   int count = 3;
   int currentExerciseIndex = 0;
   late Timer countdownTimer;
-
-  List<String> exercises = [
-    "Fist Stretch",
-    "Finger and Thumb Stretch",
-    "Finger and Thumb Touch",
-    "Thumbs-up"
-  ];
-
+  late List<String> exercises;
   @override
   void dispose() {
     countdownTimer.cancel(); // Cancel countdown timer when widget disposed
@@ -37,6 +33,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     setState(() {
       countdownStarted = true;
     });
+    Provider.of<ExerciseProvider>(context, listen: false).startExercise();
     countdownTimer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (count >= 1) {
         setState(() {
@@ -63,20 +60,26 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
 
   // Recursive shit
   void _moveToNextExercise(int index) {
-    if (index < exercises.length) {
+    if (index < exercises.length && exercises.isNotEmpty) {
       setState(() {
         currentExerciseIndex = index;  // Moving to the current exercise
       });
-      
-      // Delay for 1 minute (or adjust the time as needed) before moving to the next exercise
+
+      // Delay for 1 minute before moving to the next exercise
       Future.delayed(Duration(seconds: 5), () {
-        _moveToNextExercise(index + 1);  // Calling the next exercise
+        // Remove the completed exercise
+        if (mounted) {
+          Provider.of<ExerciseProvider>(context, listen: false)
+              .removeExercise(exercises[0]);
+        }
+        _moveToNextExercise(index);  // Call the next exercise
       });
     }
   }
   
   @override
   Widget build(BuildContext context) {
+    exercises = Provider.of<ExerciseProvider>(context).exercises;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: primaryBackground,
@@ -112,11 +115,18 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 Center(child: Image.asset("assets/fingerstretch.png")),
                 Padding(
                   padding: EdgeInsets.only(left: width*0.15),
-                  child: Text(
+                  child: exercises.isNotEmpty ? Text(
                     "Current: ${exercises[currentExerciseIndex]}\n10 reps\n1 min",
                     style: GoogleFonts.spaceGrotesk(
                       fontWeight: FontWeight.w700,
                       fontSize: 21,
+                      color: textBlack
+                    ),
+                  ) : Text(
+                    "All Done For Today!",
+                    style: GoogleFonts.spaceGrotesk(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
                       color: textBlack
                     ),
                   ),
@@ -125,7 +135,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             ),
           Padding(
             padding: EdgeInsets.only(left: width*0.15),
-            child: UpcomingScreen(exercises: exercises),
+            child: UpcomingScreen(),
           )
         ],
       ),
