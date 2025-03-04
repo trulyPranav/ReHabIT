@@ -13,7 +13,7 @@ class AuthService {
       );
       return await _auth.signInWithCredential(credential);
     } catch (e) {
-      print(e);
+      // print(e);
     }
     return null;
   }

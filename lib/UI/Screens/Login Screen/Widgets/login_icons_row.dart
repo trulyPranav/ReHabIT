@@ -25,7 +25,7 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
         LoginIcons(location: "assets/email.png"),
         GestureDetector(
           onTap: () async {
-            print("tapped");
+            //print("tapped");
             await _googleLogIn();
           },
           child: _isLoading
@@ -77,10 +77,10 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
         String? userName = session.user?.displayName ?? "User404"; // Default name if not available
         homeNav(context, userName);
       } else {
-        print("Google login failed");
+        //print("Google login failed");
       }
     } catch (e) {
-      print("Error during Google login: $e");
+      //print("Error during Google login: $e");
     } finally {
       setState(() {
         _isLoading = false;
