@@ -32,12 +32,20 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
       countdownStarted = true;
     });
     Provider.of<ExerciseProvider>(context, listen: false).startExercise();
+    var countEnder = Provider.of<ExerciseProvider>(context, listen: false);
+    bool confusion = false;
     countdownTimer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (count >= 1) {
+      if (!confusion && count > 1) {
         setState(() {
           count--;
         });
-      } else {
+      } else if (count == 1 && !confusion) {
+        setState(() {
+          count = 1;
+          confusion = true;
+        });
+      } else if (confusion) {
+        countEnder.countDownEnded();
         // Countdown finished, show the first exercise and start the 1 minute timer
         countdownTimer.cancel();  // Stop the countdown
         setState(() {
@@ -78,6 +86,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   @override
   Widget build(BuildContext context) {
     exercises = Provider.of<ExerciseProvider>(context).exercises;
+    bool coundownEnd = Provider.of<ExerciseProvider>(context).countEnd;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: primaryBackground,
@@ -93,7 +102,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 child: PatientSelectorContainer(content: "START")
               ),
           ),
-          if(countdownStarted && count > 0)
+          if(countdownStarted && !coundownEnd)
             Center(
               child: Text(
                 "$count",
@@ -104,7 +113,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 ),
               ),
             ),
-          if(countdownStarted && count == 0)
+          if(countdownStarted && coundownEnd)
             Column(
               spacing: 10,
               mainAxisAlignment: MainAxisAlignment.center,

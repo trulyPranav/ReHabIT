@@ -22,7 +22,7 @@ class NextOnboard extends StatelessWidget {
           backgroundColor: WidgetStateProperty.all(primaryColor)
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(55,5,55,5),
+          padding: const EdgeInsets.fromLTRB(45,5,45,5),
           child: Text(
             "Next",
             style: GoogleFonts.spaceGrotesk(

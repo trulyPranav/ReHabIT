@@ -17,8 +17,8 @@ class _SliderContainerState extends State<SliderContainer> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
-      height: height * 0.1,
-      width: width * 0.7,
+      height: height * 0.105,
+      width: width * 0.75,
       decoration: BoxDecoration(
         color: setContainer,
         borderRadius: BorderRadius.circular(10)
@@ -26,7 +26,7 @@ class _SliderContainerState extends State<SliderContainer> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(8,12,8,0),
+            padding: const EdgeInsets.fromLTRB(15,12,15,0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -63,7 +63,7 @@ class _SliderContainerState extends State<SliderContainer> {
             max: 1000.0,
             divisions: 9,
             activeColor: textBlack,
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
             onChanged: (double newValue){
               setState(() {
                 _currentValue = newValue;

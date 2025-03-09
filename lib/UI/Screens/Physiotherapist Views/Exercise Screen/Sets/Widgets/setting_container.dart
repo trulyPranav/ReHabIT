@@ -22,7 +22,7 @@ class _SettingContainerState extends State<SettingContainer> {
     double width = MediaQuery.of(context).size.width;
     return Container(
       height: height * 0.1,
-      width: width * 0.7,
+      width: width * 0.75,
       decoration: BoxDecoration(
         color: setContainer,
         borderRadius: BorderRadius.circular(10)

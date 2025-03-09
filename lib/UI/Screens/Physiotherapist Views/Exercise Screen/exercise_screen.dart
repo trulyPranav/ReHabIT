@@ -28,7 +28,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 35, top: 80),
+              padding: EdgeInsets.only(left: 35, top: 60),
               child: IconButton(
                 onPressed: () {
                   widget.setExerciseFalse();
@@ -37,7 +37,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(50,15  ,50,0),
+              padding: const EdgeInsets.fromLTRB(50,15,50,0),
               child: Column(
                 spacing: 15,
                 crossAxisAlignment: CrossAxisAlignment.start,

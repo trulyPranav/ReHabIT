@@ -8,8 +8,13 @@ class ExerciseProvider extends ChangeNotifier{
     "Thumbs-up",
   ];
   bool started = false;
+  bool countEnd = false;
   void startExercise(){
     started = true;
+    notifyListeners();
+  }
+  void countDownEnded(){
+    countEnd = true;
     notifyListeners();
   }
   void removeExercise(String exercise) {

@@ -69,7 +69,7 @@ class _SetsState extends State<Sets> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
             Padding(
-              padding: EdgeInsets.only(left: 35, top: 80),
+              padding: EdgeInsets.only(left: 35, top: 60),
               child: IconButton(
                 onPressed: () {
                   widget.setFalse();
@@ -96,7 +96,7 @@ class _SetsState extends State<Sets> {
             Center(child: SettingContainer(main: "duration", sub: "min")),
             SizedBox(height: 20),
             Center(child: SettingContainer(main: "frequency", sub: "reps")),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             GestureDetector(
               onTap: _showSuccessDialog,
               child: Center(child: ApplyChanges())

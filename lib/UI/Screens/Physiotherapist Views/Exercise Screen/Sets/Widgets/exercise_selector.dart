@@ -50,7 +50,7 @@ class _ExerciseSelectorState extends State<ExerciseSelector> {
     return Container(
       padding: EdgeInsets.only(left: 15, right: 15),
       height: height * 0.1,
-      width: width * 0.7,
+      width: width * 0.75,
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.circular(10)
