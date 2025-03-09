@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PatientNavbar(userName: "Rizgan"),
+                        builder: (context) => PatientNavbar(userName: "User"),
                       ),
                     );
                     Navigator.push(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PhysioNavbar(userName: "Rizgan"),
+                        builder: (context) => PhysioNavbar(userName: "User"),
                       ),
                     );
                     Navigator.push(

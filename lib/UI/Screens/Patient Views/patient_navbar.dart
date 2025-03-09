@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
+import 'package:rehabit/UI/Screens/Patient%20Views/Patient%20Detailed%20Screen/patient_detailed_screen.dart';
 
 class PatientNavbar extends StatelessWidget {
   final String userName;
@@ -9,7 +10,7 @@ class PatientNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(PatientNavController(userName));
+    final controller = Get.put(PatientNavController(userName: userName));
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
@@ -47,13 +48,13 @@ class PatientNavbar extends StatelessWidget {
 }
 
 class PatientNavController extends GetxController {
-  late final String userName;
-  PatientNavController(this.userName);
+  final String userName;
+    PatientNavController({required this.userName});
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PatientHomeScreen(name: userName),
-    Container(color: Colors.amberAccent),
-    Container(color: Colors.blueAccent),
-    Container(color: Colors.redAccent)
+    Container(color: primaryBackground),
+    PatientDetailedScreen(userName: userName),
+    Container(color: primaryBackground)
   ];
 }

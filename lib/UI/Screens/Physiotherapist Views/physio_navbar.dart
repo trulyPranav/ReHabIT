@@ -9,7 +9,7 @@ class PhysioNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(PhysioNavController(userName));
+    final controller = Get.put(PhysioNavController(userName: userName));
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
@@ -47,13 +47,13 @@ class PhysioNavbar extends StatelessWidget {
 }
 
 class PhysioNavController extends GetxController {
-  late final String userName;
-  PhysioNavController(this.userName);
+  final String userName;
+  PhysioNavController({required this.userName});
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PhysiotherapistHomeScreen(name: userName),
-    Container(color: Colors.amberAccent),
-    Container(color: Colors.blueAccent),
-    Container(color: Colors.redAccent)
+    Container(color: primaryBackground),
+    Container(color: primaryBackground),
+    Container(color: primaryBackground)
   ];
 }
