@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Patients%20Screen/patient_view_screen.dart';
 
 class PhysioNavbar extends StatelessWidget {
   final String userName;
@@ -53,7 +54,7 @@ class PhysioNavController extends GetxController {
   List<Widget> get screens => [
     PhysiotherapistHomeScreen(name: userName),
     Container(color: primaryBackground),
-    Container(color: primaryBackground),
+    PatientViewScreen(userName: userName),
     Container(color: primaryBackground)
   ];
 }

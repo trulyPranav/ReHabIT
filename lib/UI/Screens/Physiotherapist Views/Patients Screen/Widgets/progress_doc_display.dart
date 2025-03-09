@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rehabit/UI/Widgets/custom_drop_down.dart';
 
-class ProgressDisplay extends StatelessWidget {
-  const ProgressDisplay({super.key});
+class ProgressDocDisplay extends StatelessWidget {
+  const ProgressDocDisplay({super.key});
 
   @override
   Widget build(BuildContext context) {

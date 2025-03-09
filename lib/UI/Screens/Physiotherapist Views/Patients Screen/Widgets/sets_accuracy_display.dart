@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Patients%20Screen/Widgets/Sub-Widgets/circular_displayer.dart';
 import 'package:rehabit/UI/Widgets/custom_drop_down.dart';
-import 'package:rehabit/UI/Screens/Patient%20Views/Patient%20Detailed%20Screen/Widgets/Sub-Widgets/exercise_viewer.dart';
 
-class SetsDisplay extends StatelessWidget {
-  const SetsDisplay({super.key});
+class SetsAccuracyDisplay extends StatelessWidget {
+  const SetsAccuracyDisplay({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,22 +22,15 @@ class SetsDisplay extends StatelessWidget {
             CustomDropDown(timeFrame: dateFrame, valueToBeSelected: "Today"),
           ],
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 30),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            ExerciseViewer(exercise: "Fist Stretch"),
-            ExerciseViewer(exercise: "Finger & thumb\nstretch")
+            CircularDisplayer(central: "97%", title: "Training\nAccuracy"),
+            SizedBox(width: 10,),
+            CircularDisplayer(central: "3", title: "Current Set",)
           ],
-        ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ExerciseViewer(exercise: "Fist Stretch"),
-            ExerciseViewer(exercise: "Finger & thumb\nstretch")
-          ],
-        ),
+        )
       ],
     );
   }
