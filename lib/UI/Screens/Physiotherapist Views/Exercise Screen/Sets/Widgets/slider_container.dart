@@ -11,7 +11,7 @@ class SliderContainer extends StatefulWidget {
 }
 
 class _SliderContainerState extends State<SliderContainer> {
-  double _currentValue = 100;
+  double _currentValue = 0;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -59,8 +59,8 @@ class _SliderContainerState extends State<SliderContainer> {
           ),
           Slider(
             value: _currentValue,
-            min: 100.0,
-            max: 1000.0,
+            min: 0.0,
+            max: 1023.0,
             divisions: 9,
             activeColor: textBlack,
             padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),

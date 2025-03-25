@@ -26,19 +26,19 @@ class PatientNavbar extends StatelessWidget {
               label: "",
               selectedIcon: Image.asset("assets/homeActive.png"),
             ),
-            NavigationDestination(
-              icon: Image.asset("assets/secondIconNav.png"),
-              label: "",
-            ),
+            // NavigationDestination(
+            //   icon: Image.asset("assets/secondIconNav.png"),
+            //   label: "",
+            // ),
             NavigationDestination(
               icon: Image.asset("assets/calendarInactive.png"),
               label: "",
               selectedIcon: Image.asset("assets/calendarActive.png"),
             ),
-            NavigationDestination(
-              icon: Image.asset("assets/settingsIconNav.png"),
-              label: "",
-            )
+            // NavigationDestination(
+            //   icon: Image.asset("assets/settingsIconNav.png"),
+            //   label: "",
+            // )
           ]
         )
       ),
@@ -53,8 +53,8 @@ class PatientNavController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PatientHomeScreen(name: userName),
-    Container(color: primaryBackground),
+    // Container(color: primaryBackground),
     PatientDetailedScreen(userName: userName),
-    Container(color: primaryBackground)
+    // Container(color: primaryBackground)
   ];
 }

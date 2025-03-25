@@ -91,7 +91,7 @@ class _SetsState extends State<Sets> {
             SizedBox(height: 20),
             Center(child: SliderContainer(title: "flex value")),
             SizedBox(height: 20),
-            Center(child: SliderContainer(title: "force")),
+            // Center(child: SliderContainer(title: "force")),
             SizedBox(height: 20),
             Center(child: SettingContainer(main: "duration", sub: "min")),
             SizedBox(height: 20),

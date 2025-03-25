@@ -26,19 +26,19 @@ class PhysioNavbar extends StatelessWidget {
               label: "",
               selectedIcon: Image.asset("assets/homeActive.png"),
             ),
-            NavigationDestination(
-              icon: Image.asset("assets/secondIconNav.png"),
-              label: "",
-            ),
+            // NavigationDestination(
+            //   icon: Image.asset("assets/secondIconNav.png"),
+            //   label: "",
+            // ),
             NavigationDestination(
               icon: Image.asset("assets/calendarInactive.png"),
               label: "",
               selectedIcon: Image.asset("assets/calendarActive.png"),
             ),
-            NavigationDestination(
-              icon: Image.asset("assets/settingsIconNav.png"),
-              label: "",
-            )
+            // NavigationDestination(
+            //   icon: Image.asset("assets/settingsIconNav.png"),
+            //   label: "",
+            // )
           ]
         )
       ),
@@ -53,8 +53,8 @@ class PhysioNavController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PhysiotherapistHomeScreen(name: userName),
-    Container(color: primaryBackground),
+    // Container(color: primaryBackground),
     PatientViewScreen(userName: userName),
-    Container(color: primaryBackground)
+    // Container(color: primaryBackground)
   ];
 }
