@@ -23,22 +23,25 @@ class UpcomingScreen extends StatelessWidget {
           ),
         ),
         if(!started)
-          ListView(
-            shrinkWrap: true,  // This ensures ListView only takes as much space as it needs
-            children: exercises.map((exercise) {
-              return Text(
-                "10x $exercise",
-                  style: GoogleFonts.spaceGrotesk(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 21,
-                    color: Color(0xFF9B9B9B)
-                  ),
-              );
-            }).toList(),
+          Expanded(
+            child: ListView(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,  // This ensures ListView only takes as much space as it needs
+              children: exercises.map((exercise) {
+                return Text(
+                  "10x $exercise",
+                    style: GoogleFonts.spaceGrotesk(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 21,
+                      color: Color(0xFF9B9B9B)
+                    ),
+                );
+              }).toList(),
+            ),
           ),
-        if(started && !countDownEnded)
+        if(started && !countDownEnded && exercises.isNotEmpty)
           Text(
-            "10x ${exercises[0]}",
+            exercises[0],
               style: GoogleFonts.spaceGrotesk(
                 fontWeight: FontWeight.w700,
                 fontSize: 21,
@@ -47,7 +50,7 @@ class UpcomingScreen extends StatelessWidget {
           ),
         if(started && exercises.length > 1 && countDownEnded)
           Text(
-            "10x ${exercises[1]}",
+            exercises[1],
               style: GoogleFonts.spaceGrotesk(
                 fontWeight: FontWeight.w700,
                 fontSize: 21,

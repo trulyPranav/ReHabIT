@@ -13,10 +13,12 @@ class ExerciseSelector extends StatefulWidget {
 class _ExerciseSelectorState extends State<ExerciseSelector> {
   
   List<String> exercises = [
-    "Thumbs Up",
-    "Finger and\nThumb Stretch",
-    "Fist Stretch",
-    "Finger and\nThumb Touch"
+    "Finger Opposition\nFore Finger",
+    "Finger Opposition\nMiddle Finger",
+    "Finger Opposition\nRing Finger",
+    "Finger Opposition\nLittle Finger",
+    "Fist Stretch\nMake a fist", 
+    "Fist Strech\nExtend your fingers",
   ];
 
   int currentIndex = 0;
@@ -66,10 +68,11 @@ class _ExerciseSelectorState extends State<ExerciseSelector> {
             exercises[currentIndex],
             style: GoogleFonts.spaceGrotesk(
               fontWeight: FontWeight.w700,
-              fontSize: 25,
+              fontSize: 20,
               color: textWhite
             ),
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
           ),
           GestureDetector(
             onTap: () =>  _nextText(),

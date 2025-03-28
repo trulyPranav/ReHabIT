@@ -27,7 +27,7 @@ class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
         body: Padding(
           padding: const EdgeInsets.fromLTRB(50,100,50,0),
           child: Column(
-            spacing: 15,
+            spacing: 25,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -46,7 +46,7 @@ class _PhysiotherapistHomeScreenState extends State<PhysiotherapistHomeScreen> {
                 },
                 child: SelectorContainer(content: "EXERCISES")
               ),
-              SelectorContainer(content: "PROGRESS REPORTS")
+              // SelectorContainer(content: "PROGRESS REPORTS")
             ],
           ),
         ),
