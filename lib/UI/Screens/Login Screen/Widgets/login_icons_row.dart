@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rehabit/Services/Authentication/auth_service.dart';
+// import 'package:rehabit/Services/Authentication/auth_service.dart';
 import 'package:rehabit/UI/Screens/Login%20Screen/Widgets/login_icons.dart';
 import 'package:rehabit/UI/Screens/Onboarding%20Screen/onboarding_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/patient_navbar.dart';
@@ -14,8 +14,8 @@ class LoginIconsRow extends StatefulWidget {
 }
 
 class _LoginIconsRowState extends State<LoginIconsRow> {
-  final _auth = AuthService();
-  bool _isLoading = false;
+  // final _auth = AuthService();
+  // bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -26,11 +26,11 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
         GestureDetector(
           onTap: () async {
             //print("tapped");
-            await _googleLogIn();
+            // await _googleLogIn();
           },
-          child: _isLoading
-              ? CircularProgressIndicator()  // Show loading indicator
-              : LoginIcons(location: "assets/google.png")
+          child: //_isLoading
+            //  ? CircularProgressIndicator() : // Show loading indicator
+               LoginIcons(location: "assets/google.png")
           ),
         LoginIcons(location: "assets/facebook.png")
       ],
@@ -67,24 +67,24 @@ class _LoginIconsRowState extends State<LoginIconsRow> {
     }
   }
   
-  _googleLogIn() async {
-    try {
-      setState(() {
-        _isLoading = true;  // Start loading
-      });
-      final session = await _auth.loginWithGoogle();
-      if (session != null && mounted) {
-        String? userName = session.user?.displayName ?? "User404"; // Default name if not available
-        homeNav(context, userName);
-      } else {
-        //print("Google login failed");
-      }
-    } catch (e) {
-      //print("Error during Google login: $e");
-    } finally {
-      setState(() {
-        _isLoading = false;
-      });
-    }
-  }
+  // _googleLogIn() async {
+  //   try {
+  //     setState(() {
+  //       _isLoading = true;  // Start loading
+  //     });
+  //     final session = await _auth.loginWithGoogle();
+  //     if (session != null && mounted) {
+  //       String? userName = session.user?.displayName ?? "User404"; // Default name if not available
+  //       homeNav(context, userName);
+  //     } else {
+  //       //print("Google login failed");
+  //     }
+  //   } catch (e) {
+  //     //print("Error during Google login: $e");
+  //   } finally {
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   }
+  // }
 }
