@@ -4,15 +4,14 @@ import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Patients%20Screen/Wid
 import 'package:rehabit/UI/Widgets/custom_drop_down.dart';
 
 class SetsAccuracyDisplay extends StatelessWidget {
-  const SetsAccuracyDisplay({super.key});
+  final double matchPercentage; // <-- Add this
+
+  const SetsAccuracyDisplay({super.key, required this.matchPercentage});
 
   @override
   Widget build(BuildContext context) {
-    List<String> dateFrame = [
-      "Yesterday",
-      "Today",
-      "Tomorrow"
-    ];
+    List<String> dateFrame = ["Yesterday", "Today", "Tomorrow"];
+    
     return Column(
       children: [
         Row(
@@ -26,11 +25,11 @@ class SetsAccuracyDisplay extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CircularDisplayer(central: "97%", title: "Training\nAccuracy"),
-            SizedBox(width: 10,),
-            CircularDisplayer(central: "3", title: "Current Set",)
+            CircularDisplayer(central: "${matchPercentage.toStringAsFixed(1)}%", title: "Training\nAccuracy"), // Updated
+            SizedBox(width: 10),
+            CircularDisplayer(central: "3", title: "Current Set"),
           ],
-        )
+        ),
       ],
     );
   }
