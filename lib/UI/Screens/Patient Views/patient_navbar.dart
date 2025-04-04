@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Home%20Screen/patient_home_screen.dart';
 import 'package:rehabit/UI/Screens/Patient%20Views/Patient%20Detailed%20Screen/patient_detailed_screen.dart';
-import 'package:rehabit/UI/Screens/Patient%20Views/Temp%20Screen/temp_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Temp%20Screen/temp_screen.dart';
 
 class PatientNavbar extends StatelessWidget {
   final String userName;
@@ -27,10 +27,10 @@ class PatientNavbar extends StatelessWidget {
               label: "",
               selectedIcon: Image.asset("assets/homeActive.png"),
             ),
-            NavigationDestination(
-              icon: Image.asset("assets/secondIconNav.png"),
-              label: "",
-            ),
+            // NavigationDestination(
+            //   icon: Image.asset("assets/secondIconNav.png"),
+            //   label: "",
+            // ),
             NavigationDestination(
               icon: Image.asset("assets/calendarInactive.png"),
               label: "",
@@ -54,7 +54,6 @@ class PatientNavController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PatientHomeScreen(name: userName),
-    TempScreen(),
     PatientDetailedScreen(userName: userName),
     // Container(color: primaryBackground)
   ];

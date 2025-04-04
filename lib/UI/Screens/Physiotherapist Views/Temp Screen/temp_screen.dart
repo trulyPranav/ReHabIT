@@ -29,7 +29,7 @@ class _TempScreenState extends State<TempScreen> {
               data.toString(),
               style: GoogleFonts.spaceGrotesk(
                 fontWeight: FontWeight.w700,
-                fontSize: 120,
+                fontSize: 30,
                 color: textBlack
               ),
             );

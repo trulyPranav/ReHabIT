@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rehabit/UI/Constants/constants.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Home%20Screen/physiotherapist_home_screen.dart';
 import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Patients%20Screen/patient_view_screen.dart';
+import 'package:rehabit/UI/Screens/Physiotherapist%20Views/Temp%20Screen/temp_screen.dart';
 
 class PhysioNavbar extends StatelessWidget {
   final String userName;
@@ -26,10 +27,10 @@ class PhysioNavbar extends StatelessWidget {
               label: "",
               selectedIcon: Image.asset("assets/homeActive.png"),
             ),
-            // NavigationDestination(
-            //   icon: Image.asset("assets/secondIconNav.png"),
-            //   label: "",
-            // ),
+            NavigationDestination(
+              icon: Image.asset("assets/secondIconNav.png"),
+              label: "",
+            ),
             NavigationDestination(
               icon: Image.asset("assets/calendarInactive.png"),
               label: "",
@@ -53,6 +54,7 @@ class PhysioNavController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   List<Widget> get screens => [
     PhysiotherapistHomeScreen(name: userName),
+    TempScreen(),
     // Container(color: primaryBackground),
     PatientViewScreen(userName: userName),
     // Container(color: primaryBackground)
